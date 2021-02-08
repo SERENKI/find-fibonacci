@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find for fibonacci</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <form name="find" onsubmit="FindFibonacci(event)">
+            <input type="number" name="number" class="number" placeholder="Введите число" required>
+            <button>RUN</button>
+        </form>
+        <div class="headline">Ближийшее число Фибоначчи:</div>
+        <div id="fibonacci" class="fibonacci"></div>
+    </div>
+</body>
+<script type="text/javascript">  
+    document.querySelector('.number').addEventListener('keyup', function(){
+        this.value = this.value.replace(/[^\d]/g, '');
+    });
+
+    async function FindFibonacci(e) {
+        e.preventDefault();
+        let formData = new FormData(document.forms['find']);
+        let button = document.querySelector('button');
+        button.disabled = true;
+        fetch('find.php', {method: 'POST', body: formData})
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            document.getElementById('fibonacci').innerHTML = data.message;
+            button.disabled = false;
+        })
+        .catch((err) => {
+            document.getElementById('fibonacci').innerHTML = err.message;
+            button.disabled = false;
+        });
+    }
+</script>
+</html>

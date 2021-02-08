@@ -1,0 +1,52 @@
+body {
+	display: flex;
+	justify-content: center;
+}
+input {
+	padding: 10px;
+	margin: 10px 0;
+	border: 2px solid #eee;
+	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+	border-radius: 10px;
+	width: 300px;
+}
+input:focus, input:active {
+	border-color: #29b6f6;
+	outline: none;
+}
+button {
+	padding: 10px;
+	border: 2px solid #eee;
+	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+	border-radius: 10px;
+	background-color: #29b6f6;
+	color: #ffffff;
+	outline: none;
+}
+button:hover, button:active {
+	cursor: pointer;
+	background-color: #0086c3;
+	outline: none;
+}
+button:disabled {
+	background-color: #cfcfcf;
+	color: #616161;
+	cursor: default;
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	margin-top: 200px;
+}
+.headline {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 24px;
+	color: #616161;
+}
+.fibonacci {
+	margin-top: 10px;
+	text-align: center;
+	font-size: 20px;
+	color: #373737;
+}
